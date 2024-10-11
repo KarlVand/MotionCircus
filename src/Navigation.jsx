@@ -26,22 +26,51 @@ const Fliplink = ({ href, children }) => {
       initial="initial"
       whileHover="hover"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap font-black uppercase text-4xl">
-      <motion.div
-        variants={{
-          initial: { y: 0, opacity: 1 },
-          hover: { y: "-100%", opacity: 0 },
-        }}>
-        {children}
-      </motion.div>
-      <motion.div
-        className="absolute inset-0"
-        variants={{
-          initial: { y: "100%", opacity: 0 },
-          hover: { y: 0, opacity: 1 },
-        }}>
-        {children}
-      </motion.div>
+      transition={{ staggerChildren: 0.1 }}
+      className="relative block overflow-hidden whitespace-nowrap font-black uppercase text-4xl mx-32">
+      <div>
+        {children.split("").map((letter, i) => {
+          return (
+            <motion.span
+              variants={{
+                initial: {
+                  y: 0,
+                  opacity: 1,
+                },
+                hover: {
+                  y: "-100%",
+                  opacity: 0,
+                },
+              }}
+              className="inline-block"
+              key={`${letter}-${i}`}>
+              {letter}
+            </motion.span>
+          );
+        })}
+      </div>
+
+      <div className="absolute inset-0">
+        {children.split("").map((letter, i) => {
+          return (
+            <motion.span
+              variants={{
+                initial: {
+                  y: "100%",
+                  opacity: 0,
+                },
+                hover: {
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              className="inline-block"
+              key={i}>
+              {letter}
+            </motion.span>
+          );
+        })}
+      </div>
     </motion.a>
   );
 };
