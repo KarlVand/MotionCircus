@@ -1,0 +1,10 @@
+.navbar {
+  @apply flex fixed top-10 left-0 h-36 w-screen whitespace-nowrap justify-between  gap-2 px-16 text-white;
+}
+
+.navlinks {
+  @apply flex gap-4 w-screen h-1/4 justify-end px-36;
+}
+h1 {
+  @apply text-orange-600 uppercase cursor-pointer text-5xl font-bold;
+}
