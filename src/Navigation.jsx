@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <section className={styles.navbar}>
       <motion.h1
-        whileHover={{ rotate: "2deg", color: "darkorange" }}
+        whileHover={{ rotate: "2deg", style: "text-orange-900 " }}
         whileTap={{ scale: 0.9, rotate: "-2deg", color: "blue" }}>
         KARL.DEV
       </motion.h1>
@@ -26,8 +26,8 @@ const Fliplink = ({ href, children }) => {
       initial="initial"
       whileHover="hover"
       href={href}
-      transition={{ staggerChildren: 0.1 }}
-      className="relative block overflow-hidden whitespace-nowrap font-black uppercase text-4xl mx-32">
+      transition={{ staggerChildren: 0.05 }}
+      className="relative block z-10 overflow-hidden whitespace-nowrap font-black uppercase text-4xl mx-32">
       <div>
         {children.split("").map((letter, i) => {
           return (
@@ -65,7 +65,7 @@ const Fliplink = ({ href, children }) => {
                 },
               }}
               className="inline-block"
-              key={i}>
+              key={`${letter}-${i}`}>
               {letter}
             </motion.span>
           );
