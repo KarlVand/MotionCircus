@@ -1,6 +1,6 @@
 /* -------------- NAVIGATION ------------------- */
 .navbar {
-  @apply flex fixed top-3 left-0 h-36 w-screen whitespace-nowrap justify-between   gap-2 px-5 text-white;
+  @apply flex fixed top-3 left-0 h-36 w-screen whitespace-nowrap justify-between  z-10 gap-2 px-5 text-white;
 }
 
 .navlinks {
@@ -10,7 +10,4 @@ h1 {
   @apply text-orange-600 uppercase cursor-pointer text-5xl font-bold;
 }
 
-/* -------------- HERO ------------------- */
-main {
-  @apply relative flex-col w-screen h-screen p-10 justify-center align-middle;
-}
+/* ----------------- HERO ---------------------- */
